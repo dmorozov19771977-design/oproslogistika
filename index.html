@@ -388,7 +388,7 @@ $("app").innerHTML =
 '<p>Время работы в варианте 1: '+tDmin+' мин · в варианте 2: '+tCmin+' мин.</p>'+
 '<p>Из '+trapTotalD+' ситуаций с неверной рекомендацией в варианте 1 вы приняли её не глядя '+trapFollowedD+' раз(а).</p>'+
 '<p class="muted">Идентификатор '+ST.id+'.</p>'+
-'<div class="note"><b>Последний шаг (важно!):</b> нажмите кнопку ниже — откроется страница формы в новой вкладке, и поле с кодом результата будет уже заполнено. Но форма не отправится сама — на открывшейся странице нужно долистать её и нажать кнопку «Отправить»/«Submit» самой формы. Только после этого результат попадёт в таблицу ответов. Эта вкладка (стенд) останется открытой — после отправки её можно просто закрыть или переключиться на неё обратно через список вкладок браузера.</div>'+
+'<div class="note"><b>Последний шаг (важно!):</b> нажмите кнопку ниже — эта же вкладка перейдёт на страницу формы, и поле с кодом результата будет уже заполнено. Но форма не отправится сама — на открывшейся странице нужно долистать её и нажать кнопку «Отправить»/«Submit» самой формы. Только после этого результат попадёт в таблицу ответов.</div>'+
 '<p><button class="pri" id="bYf">Открыть форму с заполненным кодом</button> '+
 '<button class="sec" id="bAg">Пройти ещё раз (новый участник)</button></p>'+
 '<div id="yfErr" style="color:var(--bad);font-size:13px;margin-top:4px"></div>'+
@@ -396,10 +396,7 @@ $("app").innerHTML =
 '<textarea readonly style="width:100%;min-height:70px;font-size:11px;font-family:monospace;padding:6px;border:1px solid #e2e8f0;border-radius:6px" onclick="this.select()">'+code+'</textarea>'+
 '</div>';
 $("bYf").addEventListener("click", function(){
-var w = window.open(link, "_blank", "noopener");
-if(!w){
-$("yfErr").innerHTML = 'Браузер заблокировал открытие новой вкладки. Разрешите всплывающие окна для этой страницы или откройте ссылку вручную: <a href="'+link+'" target="_blank" rel="noopener">перейти к форме</a>.';
-}
+window.location.href = link;
 });
 $("bAg").addEventListener("click", resetAll);
 window.scrollTo(0,0);
@@ -675,4 +672,4 @@ render();
 })();
 </script>
 </body>
-</html>
+</html>   
